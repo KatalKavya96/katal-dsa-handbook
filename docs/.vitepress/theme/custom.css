@@ -1,0 +1,31 @@
+:root {
+  --vp-c-brand-1: #3f6fb5;
+  --vp-c-brand-2: #5583c4;
+  --vp-c-brand-3: #2f5a99;
+  --vp-c-brand-soft: rgba(63, 111, 181, 0.12);
+  --vp-font-family-base: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+.dark {
+  --vp-c-brand-1: #8fb3e8;
+  --vp-c-brand-2: #a6c3ee;
+  --vp-c-brand-3: #6f98d6;
+}
+.vp-doc p, .vp-doc li { line-height: 1.75; }
+
+/* "Your answer" blockquotes: the original words, kept verbatim */
+.vp-doc blockquote.kavya, .vp-doc .kavya {
+  border-left: 4px solid #d08a2e;
+  background: rgba(208, 138, 46, 0.08);
+  padding: 10px 16px;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+.verdict { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+.verdict.ok { background: rgba(46, 160, 67, 0.15); color: #2a8a3e; }
+.verdict.partial { background: rgba(208, 138, 46, 0.18); color: #a96a14; }
+.verdict.wrong { background: rgba(214, 69, 65, 0.15); color: #c0392b; }
+.verdict.pending { background: rgba(120, 120, 140, 0.15); color: #6b6b80; }
+.dark .verdict.ok { color: #6fd38a; }
+.dark .verdict.partial { color: #f0b860; }
+.dark .verdict.wrong { color: #f08a80; }
+.dark .verdict.pending { color: #b0b0c4; }
