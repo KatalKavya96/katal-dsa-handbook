@@ -8,7 +8,9 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
-    "verify": "bash scripts/verify.sh"
+    "verify": "bash scripts/verify.sh",
+    "sync:contests": "node scripts/contests/sync.mjs",
+    "test:sync": "node --test scripts/contests/sync.test.mjs"
   },
   "devDependencies": {
     "mermaid": "11.4.1",
