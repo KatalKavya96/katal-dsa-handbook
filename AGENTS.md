@@ -8,7 +8,7 @@ Katal DSA Handbook is Kavya Katal's living DSA and competitive-programming noteb
 
 - **VitePress 1.6.3** static site, Markdown in `docs/`, Mermaid via `vitepress-plugin-mermaid`, local search.
 - **Code** lives in `code/<topic>/python/*.py` and `code/<topic>/java/*.java`. Each file has a `#region solution` that pages import with `<<< @/../code/...#solution [Python]` inside a `::: code-group`. Every file self-tests (`python3 f.py --test`, `java F --test`; Python files without the flag also run their checks).
-- `scripts/verify.sh` (`npm run verify`) runs every snippet. Files containing `kavya` in the name are Kavya's verbatim submissions and are imported whole and not executed by the verifier directly.
+- `scripts/verify.sh` (`npm run verify`) runs every snippet under `code/<topic>/`; `code/contests/` holds verbatim contest submissions and is not executed. Files containing `kavya` in the name are Kavya's verbatim submissions and are imported whole and not executed by the verifier directly.
 
 ```
 docs/
@@ -24,6 +24,13 @@ code/<topic>/{python,java}/
 ```
 
 New topic: add `docs/<topic>/`, a sidebar group in `docs/.vitepress/config.mts`, a row on the home page and `learning/progress.md`. Don't create topics before they're studied.
+
+## Contest sync
+
+- `scripts/contests/sync.mjs` (`npm run sync:contests`) pulls **public** data for LeetCode (GraphQL), Codeforces (official API) and CodeChef (rating history scraped from the profile page) and writes `data/contests/<platform>.json`, `docs/contests/<platform>/index.md` and one page per contest. `.github/workflows/contest-sync.yml` runs it daily and opens a PR on branch `contest-sync`.
+- Handles are repo variables `LEETCODE_HANDLE`, `CODEFORCES_HANDLE`, `CODECHEF_HANDLE`. LeetCode code comes from the LeetHub repo in `LEETHUB_REPO` (secret `LEETHUB_TOKEN` if private), copied verbatim to `code/contests/leetcode/<slug>/kavya_*`. Never use a LeetCode session cookie.
+- Contest pages are created once; only the block between `<!-- contest-sync:start … -->` and `<!-- contest-sync:end -->` is regenerated. Write upsolve notes **outside** that block. Change the verdict from `Upsolve pending` to `Upsolved` only after the upsolve is actually done.
+- `npm run test:sync` runs offline fixture tests (no network needed).
 
 ## Content rules (non-negotiable)
 

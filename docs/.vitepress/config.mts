@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
+import contestPages from '../../data/contests/sidebar.json'
 
 export default withMermaid(defineConfig({
   title: 'Katal DSA Handbook',
@@ -11,6 +12,7 @@ export default withMermaid(defineConfig({
   themeConfig: {
     nav: [
       { text: 'Graphs', link: '/graphs/' },
+      { text: 'Contests', link: '/contests/' },
       { text: 'Mistake log', link: '/learning/mistake-log' },
       { text: 'Progress', link: '/learning/progress' },
     ],
@@ -46,10 +48,28 @@ export default withMermaid(defineConfig({
         ],
       },
       {
+        text: 'Contests',
+        collapsed: false,
+        items: [
+          { text: 'How contest sync works', link: '/contests/' },
+          ...([
+            ['leetcode', 'LeetCode'],
+            ['codeforces', 'Codeforces'],
+            ['codechef', 'CodeChef'],
+          ] as const).map(([key, name]) => ({
+            text: name,
+            link: `/contests/${key}/`,
+            collapsed: true,
+            items: (contestPages as Record<string, { text: string; link: string }[]>)[key] ?? [],
+          })),
+        ],
+      },
+      {
         text: 'Learning log',
         items: [
           { text: 'Progress tracker', link: '/learning/progress' },
-          { text: 'Mistake log', link: '/learning/mistake-log' },
+          { text: 'Contests', link: '/contests/' },
+      { text: 'Mistake log', link: '/learning/mistake-log' },
           { text: 'Revision queue', link: '/learning/revision-queue' },
           { text: 'How this notebook works', link: '/learning/conventions' },
         ],

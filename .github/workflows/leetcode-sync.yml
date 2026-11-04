@@ -1,0 +1,46 @@
+name: LeetCode contest sync
+
+# Daily: weekly contests end Sunday 04:00 UTC, biweekly Saturday 16:00 UTC,
+# and ratings settle a few days later, so a daily run picks both up.
+on:
+  schedule:
+    - cron: '30 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: leetcode-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Fetch public contest data
+        env:
+          LEETCODE_USERNAME: ${{ vars.LEETCODE_USERNAME }}
+        run: node scripts/leetcode/sync.mjs
+      - name: Build site (catches dead links)
+        run: |
+          npm ci
+          npm run build
+      - name: Open or update the sync pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: leetcode-sync
+          delete-branch: true
+          commit-message: 'contests: sync LeetCode contest results'
+          title: 'contests: sync LeetCode contest results'
+          body: |
+            Automated sync of public LeetCode contest data (rank, rating, problems, accepted-submission timing).
+
+            New contest pages start as **Upsolve pending**. Merging this only records the scores; the upsolve still has to happen.
+          labels: leetcode-sync
