@@ -1,0 +1,18 @@
+{
+  "name": "katal-dsa-handbook",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kavya's living DSA and competitive programming notebook",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "verify": "bash scripts/verify.sh"
+  },
+  "devDependencies": {
+    "mermaid": "11.4.1",
+    "vitepress": "1.6.3",
+    "vitepress-plugin-mermaid": "2.0.17"
+  }
+}
