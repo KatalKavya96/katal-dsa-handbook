@@ -9,6 +9,9 @@ hero:
       text: Open Graphs
       link: /graphs/
     - theme: alt
+      text: Contests
+      link: /contests/
+    - theme: alt
       text: Mistake log
       link: /learning/mistake-log
     - theme: alt
@@ -34,5 +37,9 @@ features:
 | Topic | Status |
 |---|---|
 | [Graphs](/graphs/) | In progress |
+
+## Contests
+
+Rated LeetCode, Codeforces and CodeChef contests sync in automatically; each one stays **Upsolve pending** until we've gone through it. See [Contests](/contests/).
 
 New topics get a section here when we start them, not before. The full menu is on the [progress page](/learning/progress#topic-menu).
