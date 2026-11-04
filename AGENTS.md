@@ -47,6 +47,8 @@ New topic: add `docs/<topic>/`, a sidebar group in `docs/.vitepress/config.mts`,
 5. `npm run build` must pass (it also checks dead links).
 6. Commit with a topic-scoped message, e.g. `graphs: add Round 2.2 answer and review`, then push.
 
+**Commit identity (Kavya's standing rule):** every commit is authored and committed as `Kavya Katal <kavyakatal09@gmail.com>`. Never add `Co-Authored-By`, `Claude-Session` or any other AI/agent trailer to commit messages.
+
 ## Current state (24 Oct 2026)
 
 - Graphs: Lessons 1 to 3, LC 1971, Frog Messages, interview rounds 1 to 2.1 imported. Round 2.2 and LC 547 pending. Rooftop Rescue needs import (statement not in the transcript).
