@@ -4,4 +4,3 @@ docs/.vitepress/cache/
 *.class
 __pycache__/
 .DS_Store
-.leethub/
