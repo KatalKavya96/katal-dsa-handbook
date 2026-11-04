@@ -25,6 +25,12 @@ code/<topic>/{python,java}/
 
 New topic: add `docs/<topic>/`, a sidebar group in `docs/.vitepress/config.mts`, a row on the home page and `learning/progress.md`. Don't create topics before they're studied.
 
+## Playground (code runner)
+
+- `<Playground />` is a global component (`docs/.vitepress/theme/components/Playground.vue`): editor, stdin box, Run. **No test cases, no judging**, by design. Props: `id` (storage key, default page path), `lang` (`python` | `java`), `stdin` (`\n` becomes a newline), `height`, `timeout` (Python seconds).
+- Everything runs in the browser. Python: Pyodide in a Web Worker (`docs/public/runtime/python-worker.mjs`), self-hosted; `scripts/playground-assets.mjs` copies it from `node_modules/pyodide` whenever the VitePress config loads (git-ignored output). Java: CheerpJ 5.0 from its CDN, Java 17, `javac` + a `PgRunner` class that wires stdin (`docs/.vitepress/theme/playground/java.ts`).
+- Starter templates hold input boilerplate only, **never a solution**. Problem pages link to the original problem; don't copy full statements just to feed the playground.
+
 ## Content rules (non-negotiable)
 
 1. **Kavya's answers are verbatim**, typos included, in a `::: info` box headed "My answer, verbatim". Never paraphrase, improve or invent them. Keep them separate from the model answer.

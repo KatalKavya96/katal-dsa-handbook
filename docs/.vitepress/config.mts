@@ -1,3 +1,5 @@
+// Copies the Pyodide runtime into docs/public/runtime/ for the playground (dev and build).
+import '../../scripts/playground-assets.mjs'
 import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 
@@ -13,6 +15,7 @@ export default withMermaid(defineConfig({
       { text: 'Graphs', link: '/graphs/' },
       { text: 'Mistake log', link: '/learning/mistake-log' },
       { text: 'Progress', link: '/learning/progress' },
+      { text: 'Playground', link: '/playground' },
     ],
     sidebar: [
       {
@@ -52,6 +55,7 @@ export default withMermaid(defineConfig({
           { text: 'Mistake log', link: '/learning/mistake-log' },
           { text: 'Revision queue', link: '/learning/revision-queue' },
           { text: 'How this notebook works', link: '/learning/conventions' },
+          { text: 'Code playground', link: '/playground' },
         ],
       },
     ],

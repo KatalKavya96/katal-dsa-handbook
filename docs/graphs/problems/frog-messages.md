@@ -81,3 +81,9 @@ The solution shown in the session read each query with `input()`. With P = 10⁵
 ## Open follow-up <span class="verdict pending">Unanswered</span> {#open-follow-up}
 
 > K = 4, A = [2, 6, 10, 14]. Frog 1 is at 2 and frog 4 is at 14, a direct distance of 12 > K. Can frog 1 still reach frog 4? Why?
+
+## Try it
+
+Answer the follow-up above first, then check your reasoning here. The input is pre-filled with the first sample. Edit it into the second sample and your own edge cases (all frogs at one position, K = 0, u = v). See [Playground](/playground) for how it works.
+
+<Playground id="frog-messages" stdin="6 3 4\n10 1 7 4 15 18\n2 1\n3 4\n1 5\n5 6\n" />
